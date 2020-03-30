@@ -13,8 +13,8 @@
  */
 struct  LZespolona {
   double   re;    /*! Pole repezentuje czesc rzeczywista. */
-  double   im;
-  bool zapis_OK;   /*! Pole repezentuje czesc urojona. */
+  double   im;    /*! Pole repezentuje czesc urojona. */
+  bool zapis_OK;   /*! Pole potrzebne do sprawdzenia poprawnosci formatu l.zespolonej */
 };
 
 
@@ -22,7 +22,7 @@ struct  LZespolona {
  * Dalej powinny pojawic sie zapowiedzi definicji przeciazen operatorow
  */
 
-/* Prototypy przeciπøeÒ i funkcji */
+/* Prototypy przeci≈°≈ºe≈Ñ i funkcji */
 LZespolona  operator + (LZespolona  Skl1,  LZespolona  Skl2);
 LZespolona operator - (LZespolona, LZespolona);
 LZespolona operator * (LZespolona, LZespolona );
