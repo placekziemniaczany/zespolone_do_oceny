@@ -22,12 +22,12 @@ LZespolona  operator + (LZespolona  Skl1,  LZespolona  Skl2)
   return Wynik;
 }
 /*!
- * Realizuje odjêcie dwoch liczb zespolonych.
+ * Realizuje odjÄ™cie dwoch liczb zespolonych.
  * Argumenty:
  *    Skl1 - Odjemna
  *    Skl2 - odjemnik
  * Zwraca:
- *    Ró¿nicê dwoch skladnikow przekazanych jako parametry.
+ *    RÃ³Å¼nicÄ™ dwoch skladnikow przekazanych jako parametry.
  */
 LZespolona operator - (LZespolona Skl1, LZespolona Skl2){
   LZespolona wynik;
@@ -36,7 +36,7 @@ LZespolona operator - (LZespolona Skl1, LZespolona Skl2){
   return wynik;
 }
 /*!
- * Realizuje mno¿enie dwoch liczb zespolonych.
+ * Realizuje mnoÅ¼enie dwoch liczb zespolonych.
  * Argumenty:
  *    L1 - pierwszy czynnik,
  *    L2 - drugi czynnik.
@@ -66,7 +66,7 @@ LZespolona sprzezenie(LZespolona &L1){
  *    L1 - Dzielna
       L2 - dzielnik
  * Zwraca:
- *    sprzê¿enie ilorazu (nie dzia³a³o bez sprzê¿enia)
+ *    sprzÄ™Å¼enie ilorazu (nie dziaÅ‚aÅ‚o bez sprzÄ™Å¼enia)
  * Dodatkowo:
  * Zmienna pomocnicza temp przechowuje sprzezenie w liczniku ze wzoru na dzielenie
  * liczb zespolonych
@@ -79,6 +79,14 @@ LZespolona operator / (LZespolona L1, LZespolona L2){
     wynik=Zpr(L1, L2);
     return sprzezenie(wynik);
 }
+/*
+* Funkcja dzieli liczbÄ™ zespolonÄ… przez liczbÄ™ rzeczywistÄ…
+* Parametry:
+*    LZespolona L3 - Dzielna
+*    LZespolona L4 - moduÅ‚ z tej liczby jest dzielnikiem
+* Zwraca:
+*    LiczbÄ™ zespolonÄ… dzielonÄ… przez moduÅ‚ drugiej zespolonej
+*/
 LZespolona Zpr (LZespolona L3, LZespolona L4){
     float m = Modul(L4);
     L3.im=L3.im/m*m;
@@ -87,9 +95,9 @@ LZespolona Zpr (LZespolona L3, LZespolona L4){
 /*!
  * Realizuje liczenie modulu l. zespolonej
  * Argumenty:
- *    L1 - Liczba zespolona z której liczony jest modul
+ *    L1 - Liczba zespolona z ktÃ³rej liczony jest modul
  * Zwraca:
- *    pierwiastek typu double, liczbê która jest modulem l. zespolonej
+ *    pierwiastek typu double, liczbÄ™ ktÃ³ra jest modulem l. zespolonej
  */
 double Modul(LZespolona L1){
    double wynik , a, b;
@@ -97,7 +105,13 @@ double Modul(LZespolona L1){
    b=L1.im;
    wynik=abs((a*a)+(b*b));
    return sqrt(wynik);
-}
+}/*
+* Funkcja sprawdza czy LZespolona L2 jest zerem
+* Parametry:
+*    LZespolona L2 - Liczba zespolona
+* Zwraca:
+*    bÅ‚Ä…d, gdy L2 jest 0+-0i
+*/
 bool czy_L2_0(LZespolona L2){
     if (L2.im==0 && L2.re==0){
             cerr<<"ERROR: Mianownik jest zerem"<<endl;
@@ -109,18 +123,18 @@ bool czy_L2_0(LZespolona L2){
 * Parametry:
 *    L1 - liczba zespolona
 * Zwraca:
-*    w sumie nic bo void, ale wyswietla liczbê zespolon¹
+*    w sumie nic bo void, ale wyswietla liczbÄ™ zespolonÅ¡
 */
 void wyswietl_zespolona(LZespolona L1){
   cout<<"("<<L1.re<<showpos<<L1.im<<"i)";
 }
 /*
-* Funkcja tworzy liczbê zespolon¹ (potrzebne do obliczeñ)
+* Funkcja tworzy liczbÄ™ zespolonÅ¡ (potrzebne do obliczeÅ„)
 * Parametry:
 *    arg 1 - cz. rzeczywista l. zespolonej typu float
 *    arg 2 - cz. urojona l. zespolonej typu float
 * Zwraca:
-*    Liczbê zespolon¹ utworzon¹ z argumentów
+*    LiczbÄ™ zespolonÅ¡ utworzonÅ¡ z argumentÃ³w
 */
 LZespolona utworz(float arg1, float arg2){
   LZespolona L1;
@@ -128,6 +142,15 @@ LZespolona utworz(float arg1, float arg2){
   L1.im=arg2;
   return L1;
 }
+/*
+* Funkcja porÃ³wnuje dwie liczby zespolone
+* Parametry:
+*    LZespolona L1 - pierwsza liczba 
+*    LZespolona L2 - druga liczba
+* Zwraca:
+*   true - gdy sÄ… rÃ³wne
+*   false - gdy nie sÄ… rÃ³wne
+*/
 bool operator == (LZespolona L1, LZespolona L2){
     if(L1.re==L2.re){
         if(L1.im==L2.im){
