@@ -123,7 +123,15 @@ bool PobierzNastpnePytanie( BazaTestu  *wskBazaTestu, WyrazenieZesp *wskWyrazeni
   ++wskBazaTestu->IndeksPytania;
   return true;
 }
-
+/*!
+ * Funkcja umożliwia użytkownikowi wpisanie odpowiedzi 3 razy, gdy pomyli format
+ * Parametry:
+ *       LZespolona &L1 - Liczba zespolona jako odpowiedź
+ *
+ * Zwraca:
+ *       Wyświetla błąd i daje możliwość wpisania odpowiedzi ponownie 3 razy
+ *       Kiedy jest dobry format, nie podaje żadnej informacji
+ */
 
 void t_szanse(LZespolona &L1){
     cin>>L1;
