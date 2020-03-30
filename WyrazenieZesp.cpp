@@ -4,6 +4,15 @@
 #include<cstring>
 using namespace std;
 
+/*
+* Funkcja wyświetla wyrażenie zespolone do obliczenia
+* Parametry: 
+*       WyrazenieZesp WyrZ - dwa składniki operacji do wykonania
+* Zwraca:
+*      Za pomocą switch case wyświetla wyrażenie do obliczenia i znak
+*      między nimi w zależności od enum Operator
+*/
+
  void display(WyrazenieZesp WyrZ){
   wyswietl_zespolona(WyrZ.Arg1);
   if(WyrZ.Op==Op_Dodaj){
@@ -21,6 +30,13 @@ using namespace std;
   wyswietl_zespolona(WyrZ.Arg2);
  }
 
+/*
+* Funkcja oblicza wyrażenie zespolone, aby potem porównać je z odpowiedzią
+* Parametry: 
+*       WyrazenieZesp WyrZ - dwa składniki operacji do wykonania
+* Zwraca:
+*      Za pomocą switch case zwraca wynik działania w postaci zespolonej
+*/
 
 LZespolona Oblicz(WyrazenieZesp  WyrZ){
     switch(WyrZ.Op){
@@ -43,6 +59,15 @@ LZespolona Oblicz(WyrazenieZesp  WyrZ){
            break;
     }
 }
+/*
+* Przeciążenie operatora >> do sprawdzania poprawności formatu zespolonej
+* Parametry: 
+*       istream &StrmWe
+*       LZespolona &L1
+* Zwraca:
+*      StrmWe, jeżeli jakiś znak nie zgadza się z formatem, L1.zapis_OK przyjmuje
+*      wartosc false (0) i w funkcji t_szanse wyrzuca błąd
+*/
 
 istream & operator >> (istream &StrmWe, LZespolona &L1){
     char lNawias, pNawias, i;
